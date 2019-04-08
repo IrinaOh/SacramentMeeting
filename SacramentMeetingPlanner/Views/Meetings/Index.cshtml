@@ -85,8 +85,9 @@
                 @Html.DisplayFor(modelItem => item.Topic)
             </td>
             <td>
+                <a asp-action="Index" asp-controller="SpeakerAssignments" asp-route-id="@item.Id">Speakers</a><br />
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a><br />
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a><br/>
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a><br />
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>

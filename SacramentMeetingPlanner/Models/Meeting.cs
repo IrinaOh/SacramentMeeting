@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace SacramentMeetingPlanner.Models
@@ -31,5 +32,6 @@ namespace SacramentMeetingPlanner.Models
         [Display(Name = "Closing Hymn")]
         public int ClosingHymn { get; set; }
         public string Topic { get; set; }
+        public ICollection<SpeakerAssignment> Speakers { get; set; }
     }
 }
