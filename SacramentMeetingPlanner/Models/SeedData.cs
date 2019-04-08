@@ -41,19 +41,47 @@ namespace SacramentMeeting.Models
                         Benediction = "Bruce Lee",
                         OpeningHymn = 344,
                         SacramentHymn = 134,
-                        ClosingHymn = 235
+                        ClosingHymn = 235,
+                        Topic = "Prayer"
                     },
 
                     new Meeting
                     {
                         MeetingDate = DateTime.Parse("2019-2-12"),
-                        Conducting = "Bruce Willies",
+                        Conducting = "Brandon Flowers",
                         Presiding = "Bruce Willies",
                         Invocation = "Mary Jo",
                         Benediction = "Bruce Lee",
                         OpeningHymn = 344,
                         SacramentHymn = 134,
-                        ClosingHymn = 235
+                        ClosingHymn = 235,
+                        Topic = "Repentance"
+                    },
+
+                    new Meeting
+                    {
+                        MeetingDate = DateTime.Parse("2019-2-19"),
+                        Conducting = "Tony Rodgers",
+                        Presiding = "Bruce Willies",
+                        Invocation = "Mary Jo",
+                        Benediction = "Bruce Lee",
+                        OpeningHymn = 344,
+                        SacramentHymn = 134,
+                        ClosingHymn = 235,
+                        Topic = "Baptism"
+                    },
+
+                    new Meeting
+                    {
+                        MeetingDate = DateTime.Parse("2019-2-26"),
+                        Conducting = "Parker Kent",
+                        Presiding = "Bruce Willies",
+                        Invocation = "Mary Jo",
+                        Benediction = "Bruce Lee",
+                        OpeningHymn = 344,
+                        SacramentHymn = 134,
+                        ClosingHymn = 235,
+                        Topic = "Millenium"
                     }
                 );
                 context.SaveChanges();

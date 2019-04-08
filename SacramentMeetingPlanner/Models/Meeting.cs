@@ -30,5 +30,6 @@ namespace SacramentMeetingPlanner.Models
         [Range(1, 341)]
         [Display(Name = "Closing Hymn")]
         public int ClosingHymn { get; set; }
+        public string Topic { get; set; }
     }
 }

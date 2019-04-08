@@ -64,7 +64,6 @@ namespace SacramentMeetingPlanner.Controllers
             }
             int pageSize = 3;
             return View(await PaginatedList<Meeting>.CreateAsync(meetings.AsNoTracking(), pageNumber ?? 1, pageSize));
-            //return View(await meetings.AsNoTracking().ToListAsync());
         }
 
         // GET: Meetings/Details/5
@@ -96,7 +95,7 @@ namespace SacramentMeetingPlanner.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,MeetingDate,Conducting,Presiding,Invocation,Benediction,OpeningHymn,SacramentHymn,ClosingHymn")] Meeting meeting)
+        public async Task<IActionResult> Create([Bind("Id,MeetingDate,Conducting,Presiding,Invocation,Benediction,OpeningHymn,SacramentHymn,ClosingHymn,Topic")] Meeting meeting)
         {
             if (ModelState.IsValid)
             {
@@ -128,7 +127,7 @@ namespace SacramentMeetingPlanner.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,MeetingDate,Conducting,Presiding,Invocation,Benediction,OpeningHymn,SacramentHymn,ClosingHymn")] Meeting meeting)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,MeetingDate,Conducting,Presiding,Invocation,Benediction,OpeningHymn,SacramentHymn,ClosingHymn,Topic")] Meeting meeting)
         {
             if (id != meeting.Id)
             {
