@@ -75,7 +75,10 @@ namespace SacramentMeetingPlanner.Controllers
             }
 
             var meeting = await _context.Meeting
+                .Include(s => s.Speakers)
+                    .AsNoTracking()
                 .FirstOrDefaultAsync(m => m.Id == id);
+
             if (meeting == null)
             {
                 return NotFound();
@@ -97,11 +100,21 @@ namespace SacramentMeetingPlanner.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,MeetingDate,Conducting,Presiding,Invocation,Benediction,OpeningHymn,SacramentHymn,ClosingHymn,Topic")] Meeting meeting)
         {
-            if (ModelState.IsValid)
+            try
             {
-                _context.Add(meeting);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                if (ModelState.IsValid)
+                {
+                    _context.Add(meeting);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+            }
+            catch (DbUpdateException /* ex */)
+            {
+                //Log the error (uncomment ex variable name and write a log.
+                ModelState.AddModelError("", "Unable to save changes. " +
+                    "Try again, and if the problem persists " +
+                    "see your system administrator.");
             }
             return View(meeting);
         }

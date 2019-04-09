@@ -32,6 +32,6 @@ namespace SacramentMeetingPlanner.Models
         [Display(Name = "Closing Hymn")]
         public int ClosingHymn { get; set; }
         public string Topic { get; set; }
-        public ICollection<SpeakerAssignment> Speakers { get; set; }
+        public ICollection<Speaker> Speakers { get; set; }
     }
 }

@@ -14,8 +14,7 @@ namespace SacramentMeetingPlanner.Models
         {
         }
 
-        public DbSet<SacramentMeetingPlanner.Models.Meeting> Meeting { get; set; }
-
-        public DbSet<SacramentMeetingPlanner.Models.SpeakerAssignment> SpeakerAssignment { get; set; }
+        public DbSet<Meeting> Meeting { get; set; }
+        public DbSet<Speaker> Speaker { get; set; }
     }
 }

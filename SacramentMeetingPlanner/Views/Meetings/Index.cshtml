@@ -56,41 +56,41 @@
     <tbody>
         @foreach (var item in Model)
         {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.MeetingDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Conducting)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Presiding)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Invocation)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Benediction)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OpeningHymn)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SacramentHymn)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ClosingHymn)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Topic)
-            </td>
-            <td>
-                <a asp-action="Index" asp-controller="SpeakerAssignments" asp-route-id="@item.Id">Speakers</a><br />
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a><br />
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a><br />
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MeetingDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Conducting)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Presiding)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Invocation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Benediction)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OpeningHymn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SacramentHymn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClosingHymn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Topic)
+                </td>
+                <td>
+                    <a asp-action="Index" asp-controller="Speakers" asp-route-id="@item.Id">Speakers</a><br />
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a><br />
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a><br />
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
         }
     </tbody>
 </table>
