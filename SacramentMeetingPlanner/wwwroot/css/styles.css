@@ -1,0 +1,91 @@
+﻿/* Google font Thasadith */
+@import url('https://fonts.googleapis.com/css?family=Cinzel|Playfair+Display|Raleway');
+
+body {
+    /* background-color: #4ABDAC;
+  color: white; */
+    font-family: 'Playfair Display', serif;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Cinzel', serif;
+}
+/* button styles */
+.btn {
+    background-color: #845007;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    width: 150px;
+    margin: 10px;
+    padding: 5px 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+    .btn:hover {
+        background-color: #ed8a63;
+    }
+
+select {
+    margin: 30px;
+    margin-left: 10px;
+    width: 150px;
+    padding: 5px 35px 5px 5px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    height: 34px;
+    background: white;
+}
+
+.user-input {
+    border-radius: 20px;
+    padding: 5px 20px;
+    border: none;
+}
+
+/* table styles */
+table {
+    border: none;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: #c9af98;
+}
+
+thead {
+    background-color: #F2F3EE;
+    color: #845007;
+    font-family: 'Raleway', sans-serif;
+}
+
+    thead a {
+        color: #ed8a63;
+    }
+
+        thead a:hover {
+            color: #c9af98;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+.sort-btn:hover {
+    color: #F7B733;
+}
+
+.crud-btn {
+    background-color: #ed8a63;
+}
+
+    .crud-btn:hover {
+        color: white;
+    }
+
+/* main navigation */
+nav {
+    font-family: 'Raleway', sans-serif;
+    background-color: #3a4660;
+    color: white;
+}
+
+    nav a:hover {
+        color: #c9af98;
+    }
