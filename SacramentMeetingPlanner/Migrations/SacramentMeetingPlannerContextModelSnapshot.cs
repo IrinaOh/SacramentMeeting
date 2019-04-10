@@ -58,7 +58,7 @@ namespace SacramentMeetingPlanner.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("MeetingId");
+                    b.Property<int>("MeetingID");
 
                     b.Property<string>("SpeakerName")
                         .IsRequired();
@@ -67,7 +67,7 @@ namespace SacramentMeetingPlanner.Migrations
 
                     b.HasKey("SpeakerID");
 
-                    b.HasIndex("MeetingId");
+                    b.HasIndex("MeetingID");
 
                     b.ToTable("Speaker");
                 });
@@ -76,7 +76,8 @@ namespace SacramentMeetingPlanner.Migrations
                 {
                     b.HasOne("SacramentMeetingPlanner.Models.Meeting", "Meeting")
                         .WithMany("Speakers")
-                        .HasForeignKey("MeetingId");
+                        .HasForeignKey("MeetingID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

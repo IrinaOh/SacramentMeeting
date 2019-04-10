@@ -10,8 +10,8 @@ using SacramentMeetingPlanner.Models;
 namespace SacramentMeetingPlanner.Migrations
 {
     [DbContext(typeof(SacramentMeetingPlannerContext))]
-    [Migration("20190409053237_One-to-Many")]
-    partial class OnetoMany
+    [Migration("20190410033906_MeetingID")]
+    partial class MeetingID
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -60,7 +60,7 @@ namespace SacramentMeetingPlanner.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("MeetingId");
+                    b.Property<int>("MeetingID");
 
                     b.Property<string>("SpeakerName")
                         .IsRequired();
@@ -69,7 +69,7 @@ namespace SacramentMeetingPlanner.Migrations
 
                     b.HasKey("SpeakerID");
 
-                    b.HasIndex("MeetingId");
+                    b.HasIndex("MeetingID");
 
                     b.ToTable("Speaker");
                 });
@@ -78,7 +78,8 @@ namespace SacramentMeetingPlanner.Migrations
                 {
                     b.HasOne("SacramentMeetingPlanner.Models.Meeting", "Meeting")
                         .WithMany("Speakers")
-                        .HasForeignKey("MeetingId");
+                        .HasForeignKey("MeetingID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

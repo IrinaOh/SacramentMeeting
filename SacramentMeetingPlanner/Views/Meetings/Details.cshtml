@@ -4,10 +4,8 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
-
 <div>
-    <h4>Meeting</h4>
+    <h4>Meeting Details</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
@@ -69,20 +67,25 @@
                 </tr>
                 @foreach (var item in Model.Speakers)
                 {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.SpeakerName)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Topic)
-                        </td>
-                    </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SpeakerName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Topic)
+                    </td>
+                    <td>
+                        <a asp-controller="Speakers" asp-action="Edit" asp-route-id="@item.SpeakerID">Edit</a><br />
+                        <a asp-controller="Speakers" asp-action="Delete" asp-route-id="@item.SpeakerID">Delete</a>
+                    </td>
+                </tr>
                 }
             </table>
         </dd>
     </dl>
 </div>
 <div>
+    <a asp-controller="Speakers" asp-action="Create" asp-route-id="@ViewData["MeetingID"]">Add New Speaker</a> |
     <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>

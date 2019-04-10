@@ -63,6 +63,7 @@ namespace SacramentMeetingPlanner.Controllers
                     break;
             }
             int pageSize = 3;
+
             return View(await PaginatedList<Meeting>.CreateAsync(meetings.AsNoTracking(), pageNumber ?? 1, pageSize));
         }
 
@@ -83,6 +84,8 @@ namespace SacramentMeetingPlanner.Controllers
             {
                 return NotFound();
             }
+
+            ViewData["MeetingID"] = id.Value;
 
             return View(meeting);
         }

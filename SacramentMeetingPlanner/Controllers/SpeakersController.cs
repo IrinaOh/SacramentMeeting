@@ -43,8 +43,9 @@ namespace SacramentMeetingPlanner.Controllers
         }
 
         // GET: Speakers/Create
-        public IActionResult Create()
+        public IActionResult Create(int? id)
         {
+            ViewData["MeetingID"] = id;
             return View();
         }
 
@@ -53,7 +54,7 @@ namespace SacramentMeetingPlanner.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("SpeakerID,SpeakerName,Topic")] Speaker speaker)
+        public async Task<IActionResult> Create([Bind("SpeakerID,MeetingID,SpeakerName,Topic")] Speaker speaker)
         {
             if (ModelState.IsValid)
             {
@@ -77,6 +78,8 @@ namespace SacramentMeetingPlanner.Controllers
             {
                 return NotFound();
             }
+
+            //ViewData["MeetingID"] = id;
             return View(speaker);
         }
 
@@ -85,7 +88,7 @@ namespace SacramentMeetingPlanner.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("SpeakerID,SpeakerName,Topic")] Speaker speaker)
+        public async Task<IActionResult> Edit(int id, [Bind("SpeakerID,MeetingID,SpeakerName,Topic")] Speaker speaker)
         {
             if (id != speaker.SpeakerID)
             {

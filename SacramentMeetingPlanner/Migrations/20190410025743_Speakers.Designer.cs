@@ -10,8 +10,8 @@ using SacramentMeetingPlanner.Models;
 namespace SacramentMeetingPlanner.Migrations
 {
     [DbContext(typeof(SacramentMeetingPlannerContext))]
-    [Migration("20190408024354_Speaker")]
-    partial class Speaker
+    [Migration("20190410025743_Speakers")]
+    partial class Speakers
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -54,27 +54,27 @@ namespace SacramentMeetingPlanner.Migrations
                     b.ToTable("Meeting");
                 });
 
-            modelBuilder.Entity("SacramentMeetingPlanner.Models.SpeakerAssignment", b =>
+            modelBuilder.Entity("SacramentMeetingPlanner.Models.Speaker", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("SpeakerID")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("AssignedTopic");
 
                     b.Property<int>("MeetingID");
 
                     b.Property<string>("SpeakerName")
                         .IsRequired();
 
-                    b.HasKey("ID");
+                    b.Property<string>("Topic");
+
+                    b.HasKey("SpeakerID");
 
                     b.HasIndex("MeetingID");
 
-                    b.ToTable("SpeakerAssignment");
+                    b.ToTable("Speaker");
                 });
 
-            modelBuilder.Entity("SacramentMeetingPlanner.Models.SpeakerAssignment", b =>
+            modelBuilder.Entity("SacramentMeetingPlanner.Models.Speaker", b =>
                 {
                     b.HasOne("SacramentMeetingPlanner.Models.Meeting", "Meeting")
                         .WithMany("Speakers")
