@@ -12,13 +12,17 @@ namespace SacramentMeetingPlanner.Models
         public DateTime MeetingDate { get; set; }
 
         [StringLength(60, MinimumLength = 3)]
+        [Required]
         public string Conducting { get; set; }
         [StringLength(60, MinimumLength = 3)]
+        [Required]
         public string Presiding { get; set; }
         //prayers
         [StringLength(60, MinimumLength = 3)]
+        [Required]
         public string Invocation { get; set; }
         [StringLength(60, MinimumLength = 3)]
+        [Required]
         public string Benediction { get; set; }
         
         //songs

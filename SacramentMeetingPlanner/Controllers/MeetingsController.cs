@@ -168,8 +168,7 @@ namespace SacramentMeetingPlanner.Controllers
                         throw;
                     }
                 }
-                //return RedirectToAction(nameof(Index));
-                return RedirectToAction("Details", "Meetings", meeting.Id);
+                return RedirectToAction(nameof(Index));
             }
             return View(meeting);
         }
