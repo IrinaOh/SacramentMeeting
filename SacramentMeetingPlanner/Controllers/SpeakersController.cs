@@ -60,9 +60,11 @@ namespace SacramentMeetingPlanner.Controllers
             {
                 _context.Add(speaker);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                //return back to the details page and show the list of all speakers assigned to this meeeting
+                return RedirectToAction("Details", "Meetings", new { id = speaker.MeetingID });
             }
-            return View(speaker);
+
+            return RedirectToAction("Details", "Meetings", new { id = speaker.MeetingID });
         }
 
         // GET: Speakers/Edit/5
@@ -79,7 +81,8 @@ namespace SacramentMeetingPlanner.Controllers
                 return NotFound();
             }
 
-            //ViewData["MeetingID"] = id;
+            ViewData["MeetingID"] = new SelectList(_context.Meeting, "MeetingID", "MeetingID", speaker.MeetingID);
+           
             return View(speaker);
         }
 
@@ -113,9 +116,11 @@ namespace SacramentMeetingPlanner.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                
+                return RedirectToAction("Details", "Meetings", new { id = speaker.MeetingID });
             }
-            return View(speaker);
+            ViewData["MeetingID"] = new SelectList(_context.Meeting, "MeetingID", "MeetingID", speaker.MeetingID);
+            return RedirectToAction("Details", "Meetings", new { id = speaker.MeetingID });
         }
 
         // GET: Speakers/Delete/5
@@ -133,7 +138,9 @@ namespace SacramentMeetingPlanner.Controllers
                 return NotFound();
             }
 
-            return View(speaker);
+            ViewData["MeetingID"] = new SelectList(_context.Meeting, "MeetingID", "MeetingID", speaker.MeetingID);
+            //return View(speaker);
+            return RedirectToAction("Details", "Meetings", new { id = speaker.MeetingID });
         }
 
         // POST: Speakers/Delete/5
@@ -144,7 +151,9 @@ namespace SacramentMeetingPlanner.Controllers
             var speaker = await _context.Speaker.FindAsync(id);
             _context.Speaker.Remove(speaker);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            //return RedirectToAction(nameof(Index));
+            ViewData["MeetingID"] = new SelectList(_context.Meeting, "MeetingID", "MeetingID", speaker.MeetingID);
+            return RedirectToAction("Details", "Meetings", new { id = speaker.MeetingID });
         }
 
         private bool SpeakerExists(int id)
