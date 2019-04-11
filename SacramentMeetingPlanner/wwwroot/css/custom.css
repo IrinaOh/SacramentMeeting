@@ -1,0 +1,109 @@
+﻿/* Google font Thasadith */
+@import url('https://fonts.googleapis.com/css?family=Cinzel|Playfair+Display|Raleway');
+
+body {
+    background-color: #d8c4b1;
+    font-family: 'Playfair Display', serif;
+}
+
+main {
+    background-color: #f9efe0;
+    padding: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 10px;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Cinzel', serif;
+}
+/* button styles */
+.btn {
+    background-color: #7f6843;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    min-width: 110px;
+    width: auto;
+    margin: 5px;
+    padding: 5px 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btn-crud {
+    background-color: white;
+    color: #7f6843;
+    border: 1px solid #7f6843;
+}
+
+.btn:hover {
+    background-color: #ed8a63;
+}
+
+select {
+    margin: 30px;
+    margin-left: 10px;
+    width: 150px;
+    padding: 5px 35px 5px 5px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    height: 34px;
+    background: white;
+}
+
+input {
+    border-radius: 20px;
+    padding: 5px 20px;
+    border: 1px solid #7f6843;
+}
+
+/* table styles */
+
+.table {
+    border: 1px solid #7f6843;
+    background-color: white;
+}
+.clean-table{
+    border: none;
+    background-color: transparent;
+}
+
+thead {
+    background-color: white;
+    color: #845007;
+}
+
+    thead a {
+        color: #c9af98;
+    }
+
+    thead a:hover {
+        color: #ed8a63;
+        text-decoration: none;
+    }
+
+/* main navigation */
+.custom-navbar {
+    font-family: 'Raleway', sans-serif;
+    background-color: #3a4660;
+    color: white;
+}
+
+.custom-navbar a:hover {
+    color: #c9af98;
+    text-decoration: none;
+}
+/* search and filter */
+/* custom classes */
+.float-left{
+    width: auto;
+    float: left;
+}
+.float-right {
+    width: auto;
+    float: right;
+}
+.home-img {
+    width: 100%;
+    border: 15px solid white;
+}

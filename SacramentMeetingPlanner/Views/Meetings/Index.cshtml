@@ -6,16 +6,16 @@
 
 <h1>Sacrament Meetings</h1>
 
-<p>
-    <a asp-action="Create">Create New Meeting</a>
+<p class="float-left">
+    <a asp-action="Create" class="btn">Create New Meeting</a>
 </p>
 
-<form asp-controller="Meetings" asp-action="Index" method="get">
+<form asp-controller="Meetings" asp-action="Index" method="get" class="float-right">
     <div class="form-actions no-color">
         <p>
             Find by name: <input type="text" name="SearchString" value="@ViewData["currentFilter"]" />
             <input type="submit" value="Search" class="btn btn-default" /> |
-            <a asp-action="Index">Back to Full List</a>
+            <a asp-action="Index" class="btn">Back to Full List</a>
         </p>
     </div>
 </form>
@@ -31,21 +31,6 @@
             </th>
             <th>
                 Presiding
-            </th>
-            <th>
-                Invocation
-            </th>
-            <th>
-                Benediction
-            </th>
-            <th>
-                Opening Hymn
-            </th>
-            <th>
-                Sacrament Hymn
-            </th>
-            <th>
-                Closing Hymn
             </th>
             <th>
                 Topic
@@ -67,27 +52,12 @@
                     @Html.DisplayFor(modelItem => item.Presiding)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Invocation)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Benediction)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.OpeningHymn)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.SacramentHymn)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ClosingHymn)
-                </td>
-                <td>
                     @Html.DisplayFor(modelItem => item.Topic)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a><br />
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a><br />
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-crud">Edit</a> | 
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-crud">Details</a> | 
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-crud">Delete</a>
                 </td>
             </tr>
         }
@@ -109,7 +79,7 @@
    asp-route-sortOrder="@ViewData["CurrentSort"]"
    asp-route-pageNumber="@(Model.PageIndex + 1)"
    asp-route-currentFilter="@ViewData["CurrentFilter"]"
-   class="btn btn-default @nextDisabled">
+   class="btn btn-default float-right @nextDisabled">
     Next
 </a>
 

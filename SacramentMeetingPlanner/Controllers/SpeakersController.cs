@@ -81,7 +81,7 @@ namespace SacramentMeetingPlanner.Controllers
                 return NotFound();
             }
 
-            ViewData["MeetingID"] = new SelectList(_context.Meeting, "MeetingID", "MeetingID", speaker.MeetingID);
+            ViewData["MeetingID"] = speaker.MeetingID;
            
             return View(speaker);
         }
@@ -119,7 +119,7 @@ namespace SacramentMeetingPlanner.Controllers
                 
                 return RedirectToAction("Details", "Meetings", new { id = speaker.MeetingID });
             }
-            ViewData["MeetingID"] = new SelectList(_context.Meeting, "MeetingID", "MeetingID", speaker.MeetingID);
+            ViewData["MeetingID"] = speaker.MeetingID;
             return RedirectToAction("Details", "Meetings", new { id = speaker.MeetingID });
         }
 
@@ -138,9 +138,11 @@ namespace SacramentMeetingPlanner.Controllers
                 return NotFound();
             }
 
-            ViewData["MeetingID"] = new SelectList(_context.Meeting, "MeetingID", "MeetingID", speaker.MeetingID);
+            //ViewData["MeetingID"] = new SelectList(_context.Meeting, "MeetingID", "MeetingID", speaker.MeetingID);
             //return View(speaker);
+            ViewData["MeetingID"] = speaker.MeetingID;
             return RedirectToAction("Details", "Meetings", new { id = speaker.MeetingID });
+
         }
 
         // POST: Speakers/Delete/5
@@ -152,7 +154,8 @@ namespace SacramentMeetingPlanner.Controllers
             _context.Speaker.Remove(speaker);
             await _context.SaveChangesAsync();
             //return RedirectToAction(nameof(Index));
-            ViewData["MeetingID"] = new SelectList(_context.Meeting, "MeetingID", "MeetingID", speaker.MeetingID);
+            //ViewData["MeetingID"] = new SelectList(_context.Meeting, "MeetingID", "MeetingID", speaker.MeetingID);
+            ViewData["MeetingID"] = speaker.MeetingID;
             return RedirectToAction("Details", "Meetings", new { id = speaker.MeetingID });
         }
 

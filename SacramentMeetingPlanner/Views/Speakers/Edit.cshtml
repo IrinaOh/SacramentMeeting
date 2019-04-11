@@ -4,13 +4,13 @@
     ViewData["Title"] = "Edit";
 }
 
-<h4>Edit This Speaker</h4>
+<h4>Edit This Speaker's Information</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input  asp-for="SpeakerID" />
+            <input type="hidden" asp-for="SpeakerID" />
             <input  asp-for="MeetingID" value="@ViewData["MeetingID"]"/>
             <div class="form-group">
                 <label asp-for="SpeakerName" class="control-label"></label>
@@ -30,7 +30,7 @@
 </div>
 
 <div>
-    <a asp-controller="Meetings" asp-action="Details" asp-route-id="@ViewData["MeetingID"]">Back to List</a>
+    <a asp-controller="Meetings" asp-action="Details" asp-route-id="@ViewData["MeetingID"]" class="btn">Back to List</a>
 </div>
 
 @section Scripts {
